@@ -1,8 +1,8 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 
 export const TextComponent = (props:any) => {
     return (
-        <Text>{props.text}</Text>
+        props.title ? <Text style={props.titlestyle}>{props.title}</Text> : <Text style={props.textStyle}>{props.title}</Text>
     )
 }
