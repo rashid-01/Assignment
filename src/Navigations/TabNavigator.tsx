@@ -7,6 +7,7 @@ import SecondScreen from '../Screens/SecondScreen/SecondScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ThirdScreen from '../Screens/ThirdScreen/ThirdScreen';
 import FourthScreen from '../Screens/FourthScreen/FourthScreen';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,34 +15,33 @@ export default function TabNavigator() {
     return (
         <NavigationContainer>
             <Tab.Navigator
-                initialRouteName={'Second'}
+                initialRouteName={'Third'}
                 tabBarOptions={{
-                    activeTintColor: '#ffffff',
-                    inactiveTintColor: 'gray',
+                    activeTintColor: '#8739F9',
+                    inactiveTintColor: '#363636',
                     style: {
-                        backgroundColor:'#000000'
+                        backgroundColor: '#100F10',
+                        borderTopColor: '#100F10'
                     }
                 }}
                 screenOptions={({ route }) => ({
                     tabBarIcon: ({ focused, color, size }) => {
                         let iconName;
                         if (route.name === 'First') {
-                            iconName = focused ? 'bar-chart' : 'bar-chart-outline';
+                            iconName = focused ? 'home' : 'home-outline';
                         } else if (route.name === 'Second') {
-                            iconName = focused ? 'pie-chart' : 'pie-chart-outline';
-                        } else if (route.name === 'Third') {
-                            iconName = focused ? 'list' : 'list-outline';
-                        } else if (route.name === 'Fourth') {
                             iconName = focused ? 'person' : 'person-outline';
+                        } else if (route.name === 'Third') {
+                            iconName = focused ? 'settings' : 'settings-outline';
                         }
-                        return <Ionicons name={iconName} size={size} color={color} />;
+                        return <Icon name={iconName} size={size} color={color} />;
                     }
               })}
             >
                 <Tab.Screen name='First' options={{tabBarLabel:''}} component={FirstScreen} />
                 <Tab.Screen name='Second' options={{tabBarLabel:''}} component={SecondScreen} />
                 <Tab.Screen name='Third' options={{tabBarLabel:''}} component={ThirdScreen} />
-                <Tab.Screen name='Fourth' options={{tabBarLabel:''}} component={FourthScreen}/>
+                {/* <Tab.Screen name='Fourth' options={{tabBarLabel:''}} component={FourthScreen}/> */}
             </Tab.Navigator>
         </NavigationContainer>
     )
