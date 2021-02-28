@@ -13,12 +13,12 @@ const Tab = createBottomTabNavigator();
 
 export default function TabNavigator() {
     return (
-        <NavigationContainer>
+        // <NavigationContainer>
             <Tab.Navigator
-                initialRouteName={'Third'}
+                initialRouteName={'Settings'}
                 tabBarOptions={{
                     activeTintColor: '#8739F9',
-                    inactiveTintColor: '#363636',
+                    inactiveTintColor: '#A9A9A9',
                     style: {
                         backgroundColor: '#100F10',
                         borderTopColor: '#100F10'
@@ -27,22 +27,23 @@ export default function TabNavigator() {
                 screenOptions={({ route }) => ({
                     tabBarIcon: ({ focused, color, size }) => {
                         let iconName;
-                        if (route.name === 'First') {
+                        if (route.name === 'Home') {
                             iconName = focused ? 'home' : 'home-outline';
-                        } else if (route.name === 'Second') {
+                        } else if (route.name === 'Profile') {
                             iconName = focused ? 'person' : 'person-outline';
-                        } else if (route.name === 'Third') {
+                        } else if (route.name === 'Settings') {
                             iconName = focused ? 'settings' : 'settings-outline';
                         }
+                        //@ts-ignore
                         return <Icon name={iconName} size={size} color={color} />;
                     }
               })}
             >
-                <Tab.Screen name='First' options={{tabBarLabel:''}} component={FirstScreen} />
-                <Tab.Screen name='Second' options={{tabBarLabel:''}} component={SecondScreen} />
-                <Tab.Screen name='Third' options={{tabBarLabel:''}} component={ThirdScreen} />
+                <Tab.Screen name='Home' options={{tabBarLabel:''}} component={FirstScreen} />
+                <Tab.Screen name='Profile' options={{tabBarLabel:''}} component={SecondScreen} />
+                <Tab.Screen name='Settings' options={{tabBarLabel:''}} component={ThirdScreen} />
                 {/* <Tab.Screen name='Fourth' options={{tabBarLabel:''}} component={FourthScreen}/> */}
             </Tab.Navigator>
-        </NavigationContainer>
+        // </NavigationContainer>
     )
 }

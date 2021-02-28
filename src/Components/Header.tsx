@@ -1,13 +1,18 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { TextComponent } from './TextComponent';
 
-export const Header = () => {
+export const Header = (props: any) => {
     return (
         <View style={Style.container}>
-            <View style={Style.flex1}></View>
+            <View style={Style.flex1}>
+                <TouchableOpacity onPress={() => props.navigation.toggleDrawer()}>
+                    <Icon name={'menu'} size={30} color={'#ffffff'}/>
+                </TouchableOpacity>
+            </View>
             <View style={Style.flex9}>
-                <TextComponent title={'US Dollar'}/>
+                <TextComponent title={props.headerTitle} titlestyle={Style.titleStyle}/>
             </View>
         </View>
     )
@@ -28,6 +33,10 @@ const Style = StyleSheet.create({
     flex9: {
         flex: 9,
         justifyContent: 'center',
-        alignItems:'center'
+        alignItems:'flex-start'
+    },
+    titleStyle: {
+        color: '#ffffff',
+        fontSize: 22
     }
 })

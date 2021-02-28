@@ -8,8 +8,12 @@ import { TextComponent } from '../../Components/TextComponent';
 
 const SecondScreen = () => {
     return (
-        <SafeAreaView style={Style.container}>
-          <View style={Style.flex2}>
+        <SafeAreaView >
+            <Header headerTitle={'Profile'} />
+            <View style={Style.textStyle}>
+                <Text>Profile Screen</Text>
+            </View>
+          {/* <View style={Style.flex2}>
             <Spacer size={50} />
             <Text style={Style.titleStyle}>$31.32</Text>
             <Spacer size={2} />
@@ -27,8 +31,7 @@ const SecondScreen = () => {
               <ListComponent icon={'arrow-up'} title={'Withdrew'} date={'1 March, 2020'} amount={'-$900.00'} remaining_amount={'$31.32'} />
                 <Spacer size={20} />
                 
-            </View>    
-            
+            </View>     */}
         </SafeAreaView>
     )
 }
@@ -37,9 +40,17 @@ const Style = StyleSheet.create({
     container: {
         flex: 1,
         flexGrow:1,
-        backgroundColor: '#242424',
+        backgroundColor: '#100F10',
         flexDirection:'column',
         alignItems:'center'
+    },
+    textStyle: {
+        flex: 1,
+        flexDirection:'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: '#ffffff',
+        fontSize: 22
     },
     flex2: {
         flex: 2,
