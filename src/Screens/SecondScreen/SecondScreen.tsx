@@ -1,38 +1,46 @@
-import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { KeyboardAvoidingView, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { ButtonComponent } from '../../Components/ButtonComponent';
 import { Header } from '../../Components/Header';
 import { ListComponent } from '../../Components/ListComponent';
 import Spacer from '../../Components/Spacer';
-import { TextComponent } from '../../Components/TextComponent';
 
 const SecondScreen = () => {
+    const [input, setInput] = useState('Enter Something...');
+    const onChangeInput = (e:any) => {
+        setInput(e.target.value)
+    }
+    const [listData, setListData] = useState([]);
+    // const submitData = () => {
+    //     setListData()
+    // }
     return (
-        <SafeAreaView >
+        <View style={Style.container}>
             <Header headerTitle={'Profile'} />
-            <View style={Style.textStyle}>
+            {/* <View style={Style.textStyle}>
                 <Text>Profile Screen</Text>
-            </View>
-          {/* <View style={Style.flex2}>
+            </View> */}
+          <View style={Style.flex2}>
             <Spacer size={50} />
-            <Text style={Style.titleStyle}>$31.32</Text>
-            <Spacer size={2} />
-            <Text style={Style.mutedText}>$31.32</Text>
-            <Spacer size={30} />
+            <TextInput
+                    style={{ height: 40, width: 300, borderColor: 'gray', borderWidth: 1, color:'#ffffff' }}
+                    value={input} onChange={onChangeInput}
+            />
+            <Spacer size={60} />
             <View style={Style.rowContainer}>
-                <Spacer/>
+                {/* <Spacer/>
                 <ButtonComponent buttonText={'Deposit'} />
-                <Spacer size={70}/>
-                <ButtonComponent buttonText={'Withdraw'} />
+                <Spacer size={70}/> */}
+                <ButtonComponent buttonText={'Submit'} />
                 </View>
             </View> 
             
             <View style={Style.flex8}>
-              <ListComponent icon={'arrow-up'} title={'Withdrew'} date={'1 March, 2020'} amount={'-$900.00'} remaining_amount={'$31.32'} />
-                <Spacer size={20} />
-                
-            </View>     */}
-        </SafeAreaView>
+                <Text style={{color:'#ffffff'}}>{input}</Text>
+              {/* <ListComponent icon={'arrow-up'} title={'Withdrew'} date={'1 March, 2020'} amount={'-$900.00'} remaining_amount={'$31.32'} /> */}
+            <Spacer size={20} />
+            </View>     
+        </View>
     )
 }
 
@@ -80,6 +88,8 @@ const Style = StyleSheet.create({
     rowContainer: {
         flex: 1,
         flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems:'center'
     }
 })
 
